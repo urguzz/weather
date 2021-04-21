@@ -1,7 +1,7 @@
 export default interface IOpenWeatherMapData {
     weather: [
         {
-            main: string,
+            description: string,
             icon: string
         }
     ],

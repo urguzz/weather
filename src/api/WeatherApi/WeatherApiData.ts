@@ -8,8 +8,7 @@ export default interface IWeatherApiData {
             icon: string
         },
         main: string,
-        description: string,
         temp_c: number,
-    },
-    wind_mph: number,
+        wind_kph: number
+    }
 }

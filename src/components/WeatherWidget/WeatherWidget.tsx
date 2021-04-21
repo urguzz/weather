@@ -11,8 +11,9 @@ function WeatherWidget(props: IProps) {
         <Card className={styles.card}>
             <div className='text-wrapper'>
                 <h2>{props.data.city}</h2>
-                <h3>Temperature: {props.data.temp}C</h3>
-                <h3>Weather: {props.data.weather}</h3>
+                <p>Weather: {props.data.weather}</p>
+                <p>Temperature: {props.data.temp}C</p>
+                <p>Wind: {props.data.wind} m/s</p>
             </div>
             <div className='img-wrapper'>
                 <img src={props.data.icon} alt='' />
