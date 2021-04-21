@@ -1,0 +1,35 @@
+//@import '~antd/dist/antd.css';
+@backColor: #001529;
+
+.App {
+  height: 100%;
+  margin: 0;
+  min-width: fit-content;
+
+  .input-field {
+    margin: auto;
+    width: fit-content;
+  }
+
+  :global .ant-layout {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+  .header {
+    height: 50px !important;
+    background-color: @backColor  !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px !important;
+
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.25), 0 -6px 20px 0 rgba(0, 0, 0, 0.2) !important;
+    background-color: @backColor  !important;
+    color: white !important;
+  }
+}
