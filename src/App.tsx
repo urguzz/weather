@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from './App.less';
-import InputField from './components/InputField/InputField'
 import { Layout } from 'antd';
 import MyApi, { IWeatherData } from './api/MyApi';
 import 'antd/dist/antd.css';
 import LayoutContent from './components/LayoutContent/LayoutContent';
-
-const { Header, Footer } = Layout;
+import LayoutHeader from './components/LayoutHeader/LayoutHeader';
+import LayoutFooter from './components/LayoutFooter/LayoutFooter';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -34,18 +33,14 @@ function App() {
   return (
     <div className={styles.App}>
       <Layout>
-        <Header className={styles.header}>
-          <InputField
-            onCityChange={handleCityChange}
-            isLoading={isLoading} />
-        </Header>
+        <LayoutHeader
+          onCityChange={handleCityChange}
+          isLoading={isLoading} />
         <LayoutContent
           data={data}
           city={city}
           isLoading={isLoading} />
-        <Footer className={styles.footer}>
-          <span>2021</span>
-        </Footer>
+        <LayoutFooter />
       </Layout>
     </div>
   );
