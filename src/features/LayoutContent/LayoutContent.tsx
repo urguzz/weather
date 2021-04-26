@@ -1,36 +1,33 @@
 import styles from './LayoutContent.less';
 import WarningField from '../WarningField/WarningField';
 import { Layout } from 'antd';
-import { IWeatherData } from '../../api/MyApi';
 import WidgetList from '../WidgetList/WidgetList';
 import LoaderSpin from '../LoaderSpin/LoaderSpin';
+import { useSelector } from 'react-redux';
+import { selectLoadingState, selectCity, selectWeatherData } from '../../app/weatherData';
+import { IWeatherData } from '../../api/MyApi';
 
-interface IProps {
-    data: Array<IWeatherData>;
-    city: string;
-    isLoading: boolean;
-}
+function LayoutContent() {
+    const data: Array<IWeatherData> = useSelector(selectWeatherData);
+    const isLoading: boolean = useSelector(selectLoadingState);
+    const city: string = useSelector(selectCity);
 
-function LayoutContent(props: IProps) {
     const chooseContent = () => {
-        if (props.isLoading) {
+        if (isLoading) {
             return (
                 <LoaderSpin />
             );
-        } else if (!props.city) {
+        } else if (!city) {
             return (
                 <WarningField text="Let's search!" />
             );
-        } else if (!props.data.length) {
+        } else if (!data.length) {
             return (
                 <WarningField text="Nothing was found :(" />
             );
         }
         return (
-            <WidgetList
-                data={props.data}
-                city={props.city}
-                isLoading={props.isLoading} />
+            <WidgetList />
         );
     }
     return (

@@ -7,16 +7,17 @@ interface IProps {
 }
 
 function WeatherWidget(props: IProps) {
+    const { weather, wind, icon, temp, city } = props.data;
     return (
         <Card className={styles.card}>
             <div className='text-wrapper'>
-                <h2>{props.data.city}</h2>
-                <p>Weather: {props.data.weather}</p>
-                <p>Temperature: {props.data.temp}C</p>
-                <p>Wind: {props.data.wind} m/s</p>
+                <h2>{city}</h2>
+                <p>Weather: {weather}</p>
+                <p>Temperature: {temp}C</p>
+                <p>Wind: {wind} m/s</p>
             </div>
             <div className='img-wrapper'>
-                <img src={props.data.icon} alt='' />
+                <img src={icon} alt='' />
             </div>
         </Card>
     );

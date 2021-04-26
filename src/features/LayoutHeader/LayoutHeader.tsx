@@ -2,18 +2,10 @@ import styles from './LayoutHeader.less';
 import { Layout } from 'antd';
 import InputField from '../InputField/InputField';
 
-interface IProps {
-    onCityChange: (e: string) => void;
-    isLoading: boolean;
-}
-
-function LayoutHeader(props: IProps) {
-
+function LayoutHeader() {
     return (
         <Layout.Header className={styles.header}>
-            <InputField
-                onCityChange={props.onCityChange}
-                isLoading={props.isLoading} />
+            <InputField />
         </Layout.Header>
     );
 }
