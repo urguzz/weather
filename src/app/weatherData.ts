@@ -66,7 +66,5 @@ export const weatherDataSlice = createSlice({
         })
     },
 });
-export const selectCity = (state: RootState): string => state.weatherData.city;
-export const selectWeatherData = (state: RootState): Array<IWeatherData> => state.weatherData.data;
-export const selectLoadingState = (state: RootState): boolean => state.weatherData.isLoading;
+
 export default weatherDataSlice.reducer;

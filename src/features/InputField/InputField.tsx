@@ -1,8 +1,9 @@
 import styles from './InputField.less';
 import { Input } from "antd";
 import { useAppDispatch } from '../../app/hooks';
-import { selectLoadingState, setCity } from '../../app/weatherData';
+import { selectLoadingState } from '../../app/selectors';
 import { useSelector } from 'react-redux';
+import { setCity } from '../../app/weatherData';
 
 function InputField() {
     const dispatch = useAppDispatch();

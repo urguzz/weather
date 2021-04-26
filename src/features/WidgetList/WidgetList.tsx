@@ -3,7 +3,7 @@ import WeatherWidget from '../WeatherWidget/WeatherWidget';
 import { Row, Col } from 'antd';
 import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
-import { selectWeatherData } from '../../app/weatherData';
+import { selectWeatherData } from '../../app/selectors';
 
 function WidgetList() {
     const data = useSelector(selectWeatherData);

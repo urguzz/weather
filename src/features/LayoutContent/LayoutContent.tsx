@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import WidgetList from '../WidgetList/WidgetList';
 import LoaderSpin from '../LoaderSpin/LoaderSpin';
 import { useSelector } from 'react-redux';
-import { selectLoadingState, selectCity, selectWeatherData } from '../../app/weatherData';
+import { selectLoadingState, selectCity, selectWeatherData } from '../../app/selectors';
 import { IWeatherData } from '../../api/MyApi';
 
 function LayoutContent() {
