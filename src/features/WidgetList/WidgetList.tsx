@@ -3,12 +3,14 @@ import WeatherWidget from '../WeatherWidget/WeatherWidget';
 import { Row, Col } from 'antd';
 import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
-import { selectWeatherData } from '../../app/selectors';
+import { selectWeatherDataState, selectTestState, selectTestStateOnly } from '../../app/selectors';
 
 function WidgetList() {
-    const data = useSelector(selectWeatherData);
+    const weatherState = useSelector(selectWeatherDataState);
+    const test = useSelector(selectTestState);
+    const testOnly = useSelector(selectTestStateOnly);
     const items: Array<ReactNode> = [];
-    data?.forEach((item, index) => {
+    weatherState.data?.forEach((item, index) => {
         items.push(
             <Col span={8} key={index} className={styles.widget}>
                 <WeatherWidget data={item} />
@@ -16,9 +18,13 @@ function WidgetList() {
         )
     });
     return (
-        <Row gutter={16} justify='space-around' className={styles.widgetList}>
-            {items}
-        </Row>
+        <>
+            <div>{test.test}</div>
+            <div>{testOnly.test.test}</div>
+            <Row gutter={16} justify='space-around' className={styles.widgetList}>
+                {items}
+            </Row>
+        </>
     );
 }
 

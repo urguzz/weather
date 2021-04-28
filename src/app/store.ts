@@ -1,9 +1,12 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import weatherDataReducer from './weatherData';
+import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
+import testReducer, { TestState } from './test';
+import weatherDataReducer, { WeatherState } from './weatherData';
+import { StateType } from 'typesafe-actions'
 
 export const store = configureStore({
   reducer: {
-    weatherData: weatherDataReducer
+    weatherData: weatherDataReducer,
+    test: testReducer
   },
 });
 
@@ -15,3 +18,13 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+
+export const combinedWeatherDataReducer = combineReducers({
+  weatherData: weatherDataReducer
+})
+export const combinedTestReducer = combineReducers({
+  test: testReducer
+})
+export type WeatherDataRootState = StateType<typeof combinedWeatherDataReducer>;
+export type TestRootState = StateType<typeof combinedTestReducer>;
