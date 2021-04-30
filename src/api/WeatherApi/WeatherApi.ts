@@ -1,5 +1,6 @@
 import convert from './WeatherApiConverter'
-import type { IWeatherApi, IWeatherData } from '../MyApi'
+import IWeatherApi from "../interfaces/IWeatherApi";
+import IWeatherData from "../interfaces/IWeatherData";
 
 class WeatherApi implements IWeatherApi {
     getWeatherByCity(city: string): Promise<IWeatherData | null> {

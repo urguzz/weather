@@ -1,6 +1,6 @@
 import styles from './WeatherWidget.less';
 import { Card } from 'antd';
-import { IWeatherData } from '../../api/MyApi';
+import IWeatherData from "../../api/interfaces/IWeatherData";
 
 interface IProps {
     data: IWeatherData;

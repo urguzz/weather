@@ -1,4 +1,4 @@
-import { IWeatherData } from "../api/MyApi";
+import IWeatherData from "../api/interfaces/IWeatherData";
 import { RootState } from "./store";
 
 export const selectCity = (state: RootState): string => state.weatherData.city;

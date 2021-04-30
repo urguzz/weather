@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import MyApi, { IWeatherData } from '../api/MyApi';
+import MyApi from '../api/MyApi';
+import IWeatherData from "../api/interfaces/IWeatherData";
 import { AppDispatch, RootState } from './store';
 
 export interface WeatherState {

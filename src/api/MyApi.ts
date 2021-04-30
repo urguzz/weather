@@ -1,18 +1,7 @@
+import IWeatherApi from "./interfaces/IWeatherApi";
 import OpenWeatherMapApi from "./OpenWeatherMap/OpenWeatherMapApi";
 import WeatherApi from "./WeatherApi/WeatherApi";
 import WeatherBitApi from "./WeatherBit/WeatherBitApi";
-
-interface IWeatherApi {
-    getWeatherByCity(city: string): Promise<IWeatherData | null>
-}
-
-interface IWeatherData {
-    weather: string,
-    city: string,
-    temp: string,
-    wind: string,
-    icon: string
-}
 
 const MyApi = {
     getApiList: (): Array<IWeatherApi> => {
@@ -21,7 +10,3 @@ const MyApi = {
 }
 
 export default MyApi;
-export type {
-    IWeatherApi,
-    IWeatherData
-};

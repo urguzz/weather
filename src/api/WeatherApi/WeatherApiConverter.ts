@@ -1,5 +1,5 @@
-import { IWeatherData } from '../MyApi';
-import WeatherApiData from './WeatherApiData'
+import WeatherApiData from './WeatherApiData';
+import IWeatherData from "../interfaces/IWeatherData";
 
 const convert = (data: WeatherApiData): IWeatherData | null => {
     const convertKphToMps = (wind_kph: number): number => {

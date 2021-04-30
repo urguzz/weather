@@ -1,5 +1,5 @@
 import IWeatherBitData from './WeatherBitData'
-import type { IWeatherData } from '../MyApi'
+import IWeatherData from "../interfaces/IWeatherData";
 
 const convert = (data: IWeatherBitData): IWeatherData | null => {
     let converted_data: IWeatherData | null;

@@ -5,7 +5,7 @@ import WidgetList from '../WidgetList/WidgetList';
 import LoaderSpin from '../LoaderSpin/LoaderSpin';
 import { useSelector } from 'react-redux';
 import { selectLoadingState, selectCity, selectWeatherData } from '../../app/selectors';
-import { IWeatherData } from '../../api/MyApi';
+import IWeatherData from "../../api/interfaces/IWeatherData";
 
 function LayoutContent() {
     const data: Array<IWeatherData> = useSelector(selectWeatherData);
