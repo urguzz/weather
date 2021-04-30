@@ -1,7 +1,6 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
 import testReducer from './test';
 import weatherDataReducer from './weatherData';
-import { StateType } from 'typesafe-actions'
 import test2Reducer from './test2';
 
 export const store = configureStore({
