@@ -1,22 +1,25 @@
-import styles from './InputField.less';
 import { Input } from "antd";
-import { useAppDispatch } from '../../app/hooks';
-import { selectLoadingState } from '../../app/selectors';
-import { useSelector } from 'react-redux';
-import { setCity } from '../../app/weatherData';
 
-function InputField() {
-    const dispatch = useAppDispatch();
-    const loadingSate = useSelector(selectLoadingState);
+import { WeatherStore } from "../../app/store";
 
-    return (
-        <div className={styles.search}>
-            <Input.Search
-                placeholder="City..."
-                onSearch={value => dispatch(setCity(value))}
-                loading={loadingSate} />
-        </div>
-    );
+import styles from "./InputField.less";
+
+interface IProps {
+  store: WeatherStore;
+}
+
+function InputField(props: IProps) {
+  const { updateData, isLoading } = props.store;
+
+  return (
+    <div className={styles.search}>
+      <Input.Search
+        placeholder="City..."
+        onSearch={updateData}
+        loading={isLoading}
+      />
+    </div>
+  );
 }
 
 export default InputField;

@@ -1,40 +1,35 @@
-import styles from './LayoutContent.less';
-import WarningField from '../WarningField/WarningField';
-import { Layout } from 'antd';
-import WidgetList from '../WidgetList/WidgetList';
-import LoaderSpin from '../LoaderSpin/LoaderSpin';
-import { useSelector } from 'react-redux';
-import { selectLoadingState, selectCity, selectWeatherData } from '../../app/selectors';
-import IWeatherData from "../../api/interfaces/IWeatherData";
+import { observer } from "mobx-react-lite";
+import { Layout } from "antd";
 
-function LayoutContent() {
-    const data: Array<IWeatherData> = useSelector(selectWeatherData);
-    const isLoading: boolean = useSelector(selectLoadingState);
-    const city: string = useSelector(selectCity);
+import WarningField from "../WarningField/WarningField";
+import WidgetList from "../WidgetList/WidgetList";
+import LoaderSpin from "../LoaderSpin/LoaderSpin";
+import { WeatherStore } from "../../app/store";
 
-    const chooseContent = () => {
-        if (isLoading) {
-            return (
-                <LoaderSpin />
-            );
-        } else if (!city) {
-            return (
-                <WarningField text="Let's search!" />
-            );
-        } else if (!data.length) {
-            return (
-                <WarningField text="Nothing was found :(" />
-            );
-        }
-        return (
-            <WidgetList />
-        );
-    }
-    return (
-        <Layout.Content className={styles.content}>
-            {chooseContent()}
-        </Layout.Content>
-    );
+import styles from "./LayoutContent.less";
+
+interface IProps {
+  store: WeatherStore;
 }
 
-export default LayoutContent;
+function LayoutContent(props: IProps) {
+  const { city, isLoading, dataCount } = props.store;
+
+  const chooseContent = () => {
+    if (isLoading) {
+      return <LoaderSpin />;
+    } else if (!city) {
+      return <WarningField text="Let's search!" />;
+    } else if (!dataCount) {
+      return <WarningField text="Nothing was found :(" />;
+    }
+    return <WidgetList store={props.store} />;
+  };
+  return (
+    <Layout.Content className={styles.content}>
+      {chooseContent()}
+    </Layout.Content>
+  );
+}
+
+export default observer(LayoutContent);

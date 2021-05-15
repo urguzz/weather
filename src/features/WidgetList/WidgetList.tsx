@@ -1,25 +1,30 @@
-import styles from './WidgetList.less';
-import WeatherWidget from '../WeatherWidget/WeatherWidget';
-import { Row, Col } from 'antd';
-import { ReactNode } from 'react';
-import { useSelector } from 'react-redux';
-import { selectWeatherData } from '../../app/selectors';
+import { ReactElement } from "react";
+import { observer } from "mobx-react-lite";
+import { Row, Col } from "antd";
 
-function WidgetList() {
-    const data = useSelector(selectWeatherData);
-    const items: Array<ReactNode> = [];
-    data?.forEach((item, index) => {
-        items.push(
-            <Col span={8} key={index} className={styles.widget}>
-                <WeatherWidget data={item} />
-            </Col>
-        )
-    });
-    return (
-        <Row gutter={16} justify='space-around' className={styles.widgetList}>
-            {items}
-        </Row>
-    );
+import WeatherWidget from "../WeatherWidget/WeatherWidget";
+
+import styles from "./WidgetList.less";
+import { WeatherStore } from "../../app/store";
+
+interface IProps {
+  store: WeatherStore;
 }
 
-export default WidgetList;
+function WidgetList(props: IProps) {
+  const widgets: Array<ReactElement> = [];
+  props.store.data?.forEach((item, index) => {
+    widgets.push(
+      <Col span={8} key={index} className={styles.widget}>
+        <WeatherWidget data={item} />
+      </Col>
+    );
+  });
+  return (
+    <Row gutter={16} justify="space-around" className={styles.widgetList}>
+      {widgets}
+    </Row>
+  );
+}
+
+export default observer(WidgetList);

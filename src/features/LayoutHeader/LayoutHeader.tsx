@@ -1,13 +1,21 @@
-import styles from './LayoutHeader.less';
-import { Layout } from 'antd';
-import InputField from '../InputField/InputField';
+import { Layout } from "antd";
+import { observer } from "mobx-react-lite";
 
-function LayoutHeader() {
-    return (
-        <Layout.Header className={styles.header}>
-            <InputField />
-        </Layout.Header>
-    );
+import InputField from "../InputField/InputField";
+import { WeatherStore } from "../../app/store";
+
+import styles from "./LayoutHeader.less";
+
+interface IProps {
+  store: WeatherStore;
 }
 
-export default LayoutHeader;
+function LayoutHeader(props: IProps) {
+  return (
+    <Layout.Header className={styles.header}>
+      <InputField store={props.store} />
+    </Layout.Header>
+  );
+}
+
+export default observer(LayoutHeader);
