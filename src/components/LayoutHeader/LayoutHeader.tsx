@@ -2,7 +2,7 @@ import { Layout } from "antd";
 import { observer } from "mobx-react-lite";
 
 import InputField from "../InputField/InputField";
-import { WeatherStore } from "../../app/store";
+import { WeatherStore } from "../../store";
 
 import styles from "./LayoutHeader.less";
 

@@ -1,9 +1,9 @@
 import { Layout } from "antd";
 
-import LayoutContent from "./features/LayoutContent/LayoutContent";
-import LayoutHeader from "./features/LayoutHeader/LayoutHeader";
-import LayoutFooter from "./features/LayoutFooter/LayoutFooter";
-import { WeatherStore } from "./app/store";
+import LayoutContent from "./components/LayoutContent/LayoutContent";
+import LayoutHeader from "./components/LayoutHeader/LayoutHeader";
+import LayoutFooter from "./components/LayoutFooter/LayoutFooter";
+import { WeatherStore } from "./store";
 
 import styles from "./App.less";
 

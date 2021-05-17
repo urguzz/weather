@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import WarningField from "../WarningField/WarningField";
 import WidgetList from "../WidgetList/WidgetList";
 import LoaderSpin from "../LoaderSpin/LoaderSpin";
-import { WeatherStore } from "../../app/store";
+import { WeatherStore } from "../../store";
 
 import styles from "./LayoutContent.less";
 

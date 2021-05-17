@@ -1,11 +1,11 @@
 import { ReactElement } from "react";
 import { observer } from "mobx-react-lite";
 import { Row, Col } from "antd";
+import { WeatherStore } from "../../store";
 
 import WeatherWidget from "../WeatherWidget/WeatherWidget";
 
 import styles from "./WidgetList.less";
-import { WeatherStore } from "../../app/store";
 
 interface IProps {
   store: WeatherStore;

@@ -5,8 +5,8 @@ import {
   makeObservable,
   computed,
 } from "mobx";
-import IWeatherData from "../api/interfaces/IWeatherData";
-import MyApi from "../api/MyApi";
+import IWeatherData from "./api/interfaces/IWeatherData";
+import MyApi from "./api/MyApi";
 
 export class WeatherStore {
   @observable city: string = "";

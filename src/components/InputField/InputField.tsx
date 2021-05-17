@@ -1,6 +1,6 @@
 import { Input } from "antd";
 
-import { WeatherStore } from "../../app/store";
+import { WeatherStore } from "../../store";
 
 import styles from "./InputField.less";
 
