@@ -8,7 +8,7 @@ module.exports = {
                 cssLoaderOptions: {
                     modules: {
                         localIdentName: "[local]___[hash:base64:5]",
-                    },
+                    },asdasd
                 },
                 babelPluginImportOptions: {
                     libraryDirectory: "es",
